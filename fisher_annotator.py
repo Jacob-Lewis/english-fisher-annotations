@@ -160,9 +160,9 @@ class Annotate(Parser):
             os.makedirs(output_dir)   
         # Loop over transcription files
         trans_file = trans_data
-        segments = self.read_transcription(trans_file) 
+        segments = self.read_transcription(trans_file)
         # Loop over cleaned/pre-proceesed transcripts         
-        doc = [segment for segment in segments if segment]    
+        doc = [segment for segment in segments if segment] 
         parse_trees, df_labels = self.run_parser(doc)
         # Write constituency parse trees and disfluency labels into files
         new_filename = os.path.join(
@@ -189,7 +189,7 @@ class Annotate(Parser):
                     continue                
                 tokens = line.split() 
                 yield self.validate_transcription(
-                    " ".join(tokens[3:])
+                    " ".join(tokens)
                     )           
 
     @staticmethod
